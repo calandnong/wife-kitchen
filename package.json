@@ -3,6 +3,9 @@
   "private": true,
   "version": "1.0.0",
   "description": "分享菜谱，交流厨艺，老婆食堂，让您成为家庭主厨！",
+  "scripts": {
+    "applet-dev": "pnpm --filter @wife-kitchen/applet run dev"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/calandnong/wife-kitchen.git"
