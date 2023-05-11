@@ -1,0 +1,23 @@
+{
+  "name": "@wife-kitchen/monorepo",
+  "version": "1.0.0",
+  "description": "分享菜谱，交流厨艺，老婆食堂，让您成为家庭主厨！",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/calandnong/wife-kitchen.git"
+  },
+  "keywords": [
+    "wife",
+    "kitchen",
+    "nestjs",
+    "nest",
+    "uniapp",
+    "vue3"
+  ],
+  "author": "calandnong",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/calandnong/wife-kitchen/issues"
+  },
+  "homepage": "https://github.com/calandnong/wife-kitchen#readme"
+}
