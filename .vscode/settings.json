@@ -1,7 +1,21 @@
 {
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.tabSize": 2,
   "cSpell.words": [
+    "calandme",
     "calandnong",
+    "commitlint",
+    "commitlintrc",
+    "dcloudio",
+    "fastcoder",
+    "imgs",
+    "kebabcase",
+    "metatype",
     "nestjs",
+    "typeorm",
     "uniapp"
   ]
 }

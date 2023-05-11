@@ -1,5 +1,6 @@
 {
   "name": "@wife-kitchen/monorepo",
+  "private": true,
   "version": "1.0.0",
   "description": "分享菜谱，交流厨艺，老婆食堂，让您成为家庭主厨！",
   "repository": {
@@ -19,5 +20,10 @@
   "bugs": {
     "url": "https://github.com/calandnong/wife-kitchen/issues"
   },
-  "homepage": "https://github.com/calandnong/wife-kitchen#readme"
+  "homepage": "https://github.com/calandnong/wife-kitchen#readme",
+  "devDependencies": {
+    "@fastcoder/eslint-config-ts": "^1.0.6",
+    "eslint": "^8.40.0",
+    "typescript": "^4.9.4"
+  }
 }
