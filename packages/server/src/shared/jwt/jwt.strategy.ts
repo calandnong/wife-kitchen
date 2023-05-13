@@ -35,11 +35,14 @@ export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
    * @param payload token解密后的值
    * @returns 返回Promise异常或者void
    */
-  async validate(payload: JWTUserInfo) {
+  async validate(payload: JWTUserInfo): Promise<JWTUserInfo> {
     if (payload.id) {
       const userInfo = await this.userService.findById(payload.id);
       if (userInfo.username === payload.username) {
-        return userInfo;
+        return {
+          id: userInfo.id,
+          username: userInfo.username,
+        };
       }
     }
     // 错误的用户令牌

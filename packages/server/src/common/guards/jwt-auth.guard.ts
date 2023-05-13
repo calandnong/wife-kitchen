@@ -1,9 +1,11 @@
 import type { ExecutionContext } from '@nestjs/common';
-import { Injectable } from '@nestjs/common';
+import { HttpStatus, Logger, Injectable } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import { AuthGuard } from '@nestjs/passport';
+import { AuthCode, AuthException } from '../exceptions/auth.exception';
 import { JWT_META_KEY, JWT_CHECK_META } from '@/common/decorators/jwt.decorator';
 import type { Request } from '@/types';
+import type { JWTUserInfo } from '@/shared/jwt/jwt.strategy';
 
 @Injectable()
 export class JwtAuthGuard extends AuthGuard('jwt') {
@@ -31,5 +33,20 @@ export class JwtAuthGuard extends AuthGuard('jwt') {
     if (jwtMeta === JWT_CHECK_META.SKIP_JWT_CHECK) return true;
 
     return super.canActivate(context);
+  }
+
+  handleRequest<TUser extends JWTUserInfo>(
+    error: unknown,
+    user: unknown,
+    info: unknown,
+  ): TUser {
+    Logger.log('JwtAuthGuard --> handleRequest:error', error);
+    Logger.log('JwtAuthGuard --> handleRequest:user', user);
+    Logger.log('JwtAuthGuard --> handleRequest:info', info);
+    if (info instanceof Error && info.message === 'No auth token') {
+      // 用户未登录
+      throw new AuthException(AuthCode.USER_NOT_LOGIN, HttpStatus.UNAUTHORIZED);
+    }
+    return user as TUser;
   }
 }

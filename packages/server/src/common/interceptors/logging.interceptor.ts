@@ -11,7 +11,7 @@ import type { NestInterceptor } from '@/types';
 
 @Injectable()
 export class LoggingInterceptor implements NestInterceptor {
-  intercept(context: ExecutionContext, next: CallHandler): Observable<unknown> {
+  intercept(_: ExecutionContext, next: CallHandler): Observable<unknown> {
     console.log('Before...');
     const now = Date.now();
     return next

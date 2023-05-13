@@ -5,6 +5,9 @@ import { BaseEntity } from '@/shared/entity/base.entity';
 
 @Entity('users')
 export class User extends BaseEntity {
+  /**
+   * 用户id
+   */
   @PrimaryGeneratedColumn({
     type: 'int',
     name: 'id',
@@ -12,6 +15,9 @@ export class User extends BaseEntity {
   })
   id: number;
 
+  /**
+   * 用户名
+   */
   @Column({
     name: 'username',
     type: 'varchar',
@@ -23,6 +29,9 @@ export class User extends BaseEntity {
   @IsString()
   username: string;
 
+  /**
+   * 用户密码
+   */
   @Column({
     name: 'password',
     type: 'text',
@@ -33,6 +42,9 @@ export class User extends BaseEntity {
   @IsString()
   password: string;
 
+  /**
+   * 密码加密逻辑
+   */
   @BeforeInsert()
   async hashPassword() {
     this.password = await argon2.hash(this.password);

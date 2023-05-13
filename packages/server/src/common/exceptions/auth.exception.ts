@@ -1,3 +1,4 @@
+import { HttpStatus } from '@nestjs/common';
 import { BaseException } from './base.exception';
 
 /**
@@ -20,6 +21,10 @@ export enum AuthCode {
    * 错误的用户令牌
    */
   INVALID_TOKEN = 2003,
+  /**
+   * 用户未登录
+   */
+  USER_NOT_LOGIN = 2004,
 }
 
 export const AuthMessage: Readonly<Record<AuthCode, string>> = {
@@ -27,6 +32,7 @@ export const AuthMessage: Readonly<Record<AuthCode, string>> = {
   [AuthCode.USER_NOT_FOUND_REGISTER]: '用户不存在，请注册',
   [AuthCode.INVALID_USERNAME_OR_PASSWORD]: '用户名或者密码错误',
   [AuthCode.INVALID_TOKEN]: '错误的用户令牌',
+  [AuthCode.USER_NOT_LOGIN]: '用户未登录',
 };
 
 /**
@@ -36,7 +42,8 @@ export const AuthMessage: Readonly<Record<AuthCode, string>> = {
 export class AuthException extends BaseException {
   constructor(
     code: AuthCode,
+    status: HttpStatus = HttpStatus.OK,
   ) {
-    super(code, AuthMessage[code]);
+    super(code, AuthMessage[code], status);
   }
 }
