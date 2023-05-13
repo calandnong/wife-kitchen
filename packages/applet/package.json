@@ -16,6 +16,10 @@
     "url": "git+https://github.com/calandnong/wife-kitchen.git"
   },
   "scripts": {
+    "w2": "cross-env NODE_ENV=development w2 stop && w2 start -p 9002 && w2 add --force ./whistle/index.js",
+    "w2:mock": "cross-env RUN_MODE=mock w2 stop && w2 start && w2 add --force ./whistle/index.js --mockPort 7777",
+    "w2:stop": "w2 stop",
+    "mock": "mock -p 7777 -d ./mock",
     "dev": "pnpm run dev:mp-weixin",
     "build": "pnpm run build:mp-weixin",
     "dev:app": "uni -p app",
@@ -55,6 +59,8 @@
     "type-check": "vue-tsc --noEmit"
   },
   "dependencies": {
+    "@applet-request/adapters": "^0.1.12",
+    "@applet-request/core": "^0.1.10",
     "@dcloudio/uni-app": "3.0.0-alpha-3070720230316001",
     "@dcloudio/uni-app-plus": "3.0.0-alpha-3070720230316001",
     "@dcloudio/uni-components": "3.0.0-alpha-3070720230316001",
@@ -80,11 +86,16 @@
     "@dcloudio/vite-plugin-uni": "3.0.0-alpha-3070720230316001",
     "@fastcoder/eslint-config-vue": "^1.0.6",
     "@vue/tsconfig": "^0.1.3",
+    "cross-env": "^7.0.3",
+    "esbuild": "^0.17.19",
+    "esbuild-register": "^3.4.2",
     "eslint-plugin-filename-rules": "^1.3.1",
     "jest": "27.0.4",
     "jest-environment-node": "27.5.1",
+    "mock-server-local": "^2.6.7",
     "typescript": "^4.9.4",
     "vite": "4.0.4",
-    "vue-tsc": "^1.0.24"
+    "vue-tsc": "^1.0.24",
+    "whistle": "^2.9.48"
   }
 }

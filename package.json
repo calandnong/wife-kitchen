@@ -26,6 +26,7 @@
   "homepage": "https://github.com/calandnong/wife-kitchen#readme",
   "devDependencies": {
     "@fastcoder/eslint-config-ts": "^1.0.6",
+    "@wife-kitchen/config": "workspace:*",
     "eslint": "^8.40.0",
     "typescript": "^4.9.4"
   }
