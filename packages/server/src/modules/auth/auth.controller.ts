@@ -10,8 +10,8 @@ export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @SkipJWTCheck()
-  @Post('/signIn')
   @ApiOperation({ summary: '用户登录' })
+  @Post('/signIn')
   signIn(@Body() dto: SignUserDto) {
     const { username, password } = dto;
     return this.authService.signIn(username, password);

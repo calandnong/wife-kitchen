@@ -1,5 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
-import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { UserService } from './user.service';
 import type { User } from './user.entity';
 import type { BaseResponse } from '@/common/response/BaseResponse';

@@ -14,8 +14,15 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { login } from '@/api/login';
 
 const title = ref('老婆食堂！');
+
+login()
+  .then((res) => {
+    console.log('login==>', res.data.token);
+  });
+
 </script>
 
 <style>
