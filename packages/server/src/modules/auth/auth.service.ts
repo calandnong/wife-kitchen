@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import * as argon2 from 'argon2';
 import { UserService } from '../user/user.service';
-import { AuthCode, AuthException } from '@/common/exceptions/auth.exception';
+import { AuthExceptionCode, AuthException } from '@/common/exceptions/auth.exception';
 import { AppJwtService } from '@/shared/jwt/jwt.service';
 
 @Injectable()
@@ -21,7 +21,7 @@ export class AuthService {
     const user = await this.userService.find(username);
     if (!user) {
       // 用户不存在，请注册
-      throw new AuthException(AuthCode.USER_NOT_FOUND_REGISTER);
+      throw new AuthException(AuthExceptionCode.USER_NOT_FOUND_REGISTER);
     }
 
     // 用户密码进行比对
@@ -29,7 +29,7 @@ export class AuthService {
 
     if (!isPasswordValid) {
       // 用户名或密码错误
-      throw new AuthException(AuthCode.INVALID_USERNAME_OR_PASSWORD);
+      throw new AuthException(AuthExceptionCode.INVALID_USERNAME_OR_PASSWORD);
     }
     return {
       token: `${this.appJwtService.sign({
@@ -49,7 +49,7 @@ export class AuthService {
 
     if (user) {
       // 用户已存在
-      throw new AuthException(AuthCode.USER_ALREADY_EXISTS);
+      throw new AuthException(AuthExceptionCode.USER_ALREADY_EXISTS);
     }
 
     const userInfo = await this.userService.create({

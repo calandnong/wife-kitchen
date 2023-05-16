@@ -6,6 +6,7 @@
   "scripts": {
     "applet-dev": "pnpm --filter @wife-kitchen/applet run dev",
     "lint": "pnpm -r run lint",
+    "type-check": "pnpm -r run type-check",
     "add:husky-lint-staged": "husky add .husky/pre-commit 'lint-staged'",
     "add:husky-commitlint": "husky add .husky/commit-msg 'npx --no -- commitlint --config .commitlintrc.cjs --edit ${1}'",
     "husky:init": "npx husky-init",

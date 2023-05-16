@@ -16,7 +16,10 @@
     "url": "git+https://github.com/calandnong/wife-kitchen.git"
   },
   "scripts": {
+    "tsc": "tsc --noEmit",
     "lint": "eslint .",
+    "type-check": "pnpm run tsc && pnpm run vue-check",
+    "vue-check": "vue-tsc --noEmit",
     "w2": "cross-env NODE_ENV=development w2 stop && w2 start -p 9002",
     "w2:mock": "cross-env RUN_MODE=mock w2 stop && w2 start && w2 add --force ./whistle/index.js --mockPort 7777",
     "w2:stop": "w2 stop",
@@ -56,8 +59,7 @@
     "build:mp-weixin": "uni build -p mp-weixin",
     "build:quickapp-webview": "uni build -p quickapp-webview",
     "build:quickapp-webview-huawei": "uni build -p quickapp-webview-huawei",
-    "build:quickapp-webview-union": "uni build -p quickapp-webview-union",
-    "type-check": "vue-tsc --noEmit"
+    "build:quickapp-webview-union": "uni build -p quickapp-webview-union"
   },
   "dependencies": {
     "@applet-request/adapters": "^0.1.13",
