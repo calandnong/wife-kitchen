@@ -43,7 +43,7 @@ requestInstance.use(async (context, next) => {
   catch (error) {
     // 判断是否是http成功的状态
     if (!isHttpSuccess(context.response.raw.statusCode)) {
-      throw new HttpException('网络错误，请重试！', context.response.raw);
+      throw new HttpException('错误，请重试！', context.response.raw);
     }
     // 不是则原错误继续向外抛出
     throw error;

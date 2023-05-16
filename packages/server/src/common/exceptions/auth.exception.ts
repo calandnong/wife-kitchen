@@ -4,7 +4,7 @@ import { BaseException } from './base.exception';
 /**
  * 认证异常状态码: 2000 - 2100
  */
-export enum AuthCode {
+export enum AuthExceptionCode {
   /**
    * 用户已存在
    */
@@ -27,12 +27,12 @@ export enum AuthCode {
   USER_NOT_LOGIN = 2004,
 }
 
-export const AuthMessage: Readonly<Record<AuthCode, string>> = {
-  [AuthCode.USER_ALREADY_EXISTS]: '用户已存在',
-  [AuthCode.USER_NOT_FOUND_REGISTER]: '用户不存在，请注册',
-  [AuthCode.INVALID_USERNAME_OR_PASSWORD]: '用户名或者密码错误',
-  [AuthCode.INVALID_TOKEN]: '错误的用户令牌',
-  [AuthCode.USER_NOT_LOGIN]: '用户未登录',
+export const AuthExceptionMessage: Readonly<Record<AuthExceptionCode, string>> = {
+  [AuthExceptionCode.USER_ALREADY_EXISTS]: '用户已存在',
+  [AuthExceptionCode.USER_NOT_FOUND_REGISTER]: '用户不存在，请注册',
+  [AuthExceptionCode.INVALID_USERNAME_OR_PASSWORD]: '用户名或者密码错误',
+  [AuthExceptionCode.INVALID_TOKEN]: '错误的用户令牌',
+  [AuthExceptionCode.USER_NOT_LOGIN]: '用户未登录',
 };
 
 /**
@@ -41,9 +41,9 @@ export const AuthMessage: Readonly<Record<AuthCode, string>> = {
  */
 export class AuthException extends BaseException {
   constructor(
-    code: AuthCode,
+    code: AuthExceptionCode,
     status: HttpStatus = HttpStatus.OK,
   ) {
-    super(code, AuthMessage[code], status);
+    super(code, AuthExceptionMessage[code], status);
   }
 }

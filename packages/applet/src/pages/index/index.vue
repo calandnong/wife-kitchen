@@ -15,12 +15,17 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { login } from '@/api/login';
+import { HttpException } from '@/adapters/request/exceptions';
 
 const title = ref('老婆食堂！');
 
 login()
   .then((res) => {
     console.log('login==>', res.data.token);
+  }).catch((err) => {
+    if (err instanceof HttpException) {
+
+    }
   });
 
 </script>

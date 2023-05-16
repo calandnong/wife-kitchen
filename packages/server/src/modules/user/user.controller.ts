@@ -1,8 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
-import { ApiBearerAuth, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { UserService } from './user.service';
 import type { User } from './user.entity';
-import type { BaseResponse } from '@/common/response/BaseResponse';
 import { UserInfo } from '@/common/decorators/jwt.decorator';
 import { JWTUserInfo } from '@/shared/jwt/jwt.strategy';
 
@@ -14,7 +13,7 @@ export class UserController {
   @ApiBearerAuth()
   @ApiOperation({ summary: '获取用户列表' })
   @Get('/getList')
-  getList(@UserInfo() user: JWTUserInfo): Promise<BaseResponse<User[]>> {
+  getList(@UserInfo() user: JWTUserInfo): Promise<User[]> {
     console.log('获取用户列表', user);
     return this.userService.getList();
   }

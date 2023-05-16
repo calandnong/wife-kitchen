@@ -6,8 +6,9 @@ export class BaseException extends HttpException {
     code: number,
     message = '系统繁忙，请重试',
     status: HttpStatus = HttpStatus.OK,
+    data?: unknown,
   ) {
-    super(new BaseResponse(code, message), status);
+    super(new BaseResponse(code, message, data), status);
   }
 
   getResponse(): BaseResponse {

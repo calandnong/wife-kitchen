@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import * as argon2 from 'argon2';
 import { UserService } from '../user/user.service';
-import { BaseResponse } from '@/common/response/BaseResponse';
 import { AuthCode, AuthException } from '@/common/exceptions/auth.exception';
 import { AppJwtService } from '@/shared/jwt/jwt.service';
 
@@ -11,15 +10,6 @@ export class AuthService {
     private userService: UserService,
     private appJwtService: AppJwtService,
   ) {}
-
-  async validateUser(username: string, pass: string): Promise<unknown> {
-    const user = await this.userService.find(username);
-    if (user?.password === pass) {
-      const { ...result } = user;
-      return result;
-    }
-    return null;
-  }
 
   /**
    * @description 用户登录方法
@@ -41,12 +31,12 @@ export class AuthService {
       // 用户名或密码错误
       throw new AuthException(AuthCode.INVALID_USERNAME_OR_PASSWORD);
     }
-    return BaseResponse.toSuccessJustData({
-      token: `Bearer ${this.appJwtService.sign({
+    return {
+      token: `${this.appJwtService.sign({
         username: user.username,
         id: user.id,
       })}`,
-    });
+    };
   }
 
   /**
@@ -67,8 +57,11 @@ export class AuthService {
       password,
     });
 
-    return BaseResponse.toSuccessJustData({
+    // 不查询密码内容
+    delete userInfo.password;
+
+    return {
       username: userInfo.username,
-    });
+    };
   }
 }

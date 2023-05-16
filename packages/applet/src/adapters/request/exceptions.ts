@@ -1,5 +1,9 @@
 import { BaseException } from '@applet-request/shared';
 
+export {
+  BaseException,
+};
+
 export class HttpException extends BaseException {
   name = 'HttpException';
 }

@@ -2,7 +2,7 @@ import type { ExecutionContext } from '@nestjs/common';
 import { HttpStatus, Logger, Injectable } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import { AuthGuard } from '@nestjs/passport';
-import { AuthCode, AuthException } from '../exceptions/auth.exception';
+import { AuthExceptionCode, AuthException } from '../exceptions/auth.exception';
 import { JWT_META_KEY, JWT_CHECK_META } from '@/common/decorators/jwt.decorator';
 import type { Request } from '@/types';
 import type { JWTUserInfo } from '@/shared/jwt/jwt.strategy';
@@ -45,7 +45,12 @@ export class JwtAuthGuard extends AuthGuard('jwt') {
     Logger.log('JwtAuthGuard --> handleRequest:info', info);
     if (info instanceof Error && info.message === 'No auth token') {
       // 用户未登录
-      throw new AuthException(AuthCode.USER_NOT_LOGIN, HttpStatus.UNAUTHORIZED);
+      throw new AuthException(AuthExceptionCode.USER_NOT_LOGIN, HttpStatus.UNAUTHORIZED);
+    }
+    // 出现错误
+    if (info) {
+    // 错误的用户令牌
+      throw new AuthException(AuthExceptionCode.INVALID_TOKEN);
     }
     return user as TUser;
   }

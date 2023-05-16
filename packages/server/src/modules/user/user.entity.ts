@@ -34,7 +34,8 @@ export class User extends BaseEntity {
    */
   @Column({
     name: 'password',
-    type: 'text',
+    type: 'varchar',
+    length: 255,
     comment: '用户密码',
     select: false,
   })

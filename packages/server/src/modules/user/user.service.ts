@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from '@/modules/user/user.entity';
-import { BaseResponse } from '@/common/response/BaseResponse';
 
 @Injectable()
 export class UserService {
@@ -17,7 +16,7 @@ export class UserService {
    */
   async getList() {
     const data = await this.userRepository.find();
-    return BaseResponse.toSuccess(data, '获取成功');
+    return data;
   }
 
   /**

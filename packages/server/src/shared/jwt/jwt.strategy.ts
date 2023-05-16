@@ -4,7 +4,7 @@ import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { Config, useConfigService } from '@/config/configuration';
 import { UserService } from '@/modules/user/user.service';
-import { AuthCode, AuthException } from '@/common/exceptions/auth.exception';
+import { AuthExceptionCode, AuthException } from '@/common/exceptions/auth.exception';
 
 export interface JWTUserInfo {
   /**
@@ -46,6 +46,6 @@ export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
       }
     }
     // 错误的用户令牌
-    throw new AuthException(AuthCode.INVALID_TOKEN);
+    throw new AuthException(AuthExceptionCode.INVALID_TOKEN);
   }
 }
