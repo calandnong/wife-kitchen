@@ -6,7 +6,6 @@ import { setupSwagger } from '@/config/swagger';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-
   // 注册use
   appUse(app);
   // 设置swagger

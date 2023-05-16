@@ -16,6 +16,7 @@
     "url": "git+https://github.com/calandnong/wife-kitchen.git"
   },
   "scripts": {
+    "lint": "eslint .",
     "w2": "cross-env NODE_ENV=development w2 stop && w2 start -p 9002",
     "w2:mock": "cross-env RUN_MODE=mock w2 stop && w2 start && w2 add --force ./whistle/index.js --mockPort 7777",
     "w2:stop": "w2 stop",

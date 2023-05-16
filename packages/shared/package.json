@@ -5,7 +5,8 @@
   "scripts": {
     "build": "tsx ./scripts/build.ts",
     "build:rollup": "rollup -c",
-    "tsc": "tsc --noEmit"
+    "tsc": "tsc --noEmit",
+    "lint": "eslint ."
   },
   "files": [
     "dist"
