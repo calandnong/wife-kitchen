@@ -1,7 +1,18 @@
 {
   "name": "@wife-kitchen/monorepo",
+  "private": true,
   "version": "1.0.0",
   "description": "分享菜谱，交流厨艺，老婆食堂，让您成为家庭主厨！",
+  "scripts": {
+    "applet": "pnpm --filter @wife-kitchen/applet run dev",
+    "server": "pnpm --filter @wife-kitchen/server run start",
+    "lint": "pnpm -r run lint",
+    "type-check": "pnpm -r run type-check",
+    "add:husky-lint-staged": "husky add .husky/pre-commit 'lint-staged'",
+    "add:husky-commitlint": "husky add .husky/commit-msg 'npx --no -- commitlint --config .commitlintrc.cjs --edit ${1}'",
+    "husky:init": "npx husky-init",
+    "prepare": "husky install"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/calandnong/wife-kitchen.git"
@@ -19,5 +30,14 @@
   "bugs": {
     "url": "https://github.com/calandnong/wife-kitchen/issues"
   },
-  "homepage": "https://github.com/calandnong/wife-kitchen#readme"
+  "homepage": "https://github.com/calandnong/wife-kitchen#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.3",
+    "@commitlint/config-conventional": "^17.6.3",
+    "@wife-kitchen/config": "workspace:*",
+    "eslint": "^8.40.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.2.2",
+    "typescript": "^4.9.4"
+  }
 }

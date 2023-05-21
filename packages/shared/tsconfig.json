@@ -1,0 +1,6 @@
+{
+  "extends":"@wife-kitchen/config/tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "."
+  }
+}
