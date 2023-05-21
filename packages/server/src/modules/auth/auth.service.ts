@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import * as argon2 from 'argon2';
 import { UserService } from '../user/user.service';
 import { AuthExceptionCode, AuthException } from '@/common/exceptions/auth.exception';
@@ -24,8 +24,15 @@ export class AuthService {
       throw new AuthException(AuthExceptionCode.USER_NOT_FOUND_REGISTER);
     }
 
+    let isPasswordValid = false;
+
     // 用户密码进行比对
-    const isPasswordValid = await argon2.verify(user.password, password);
+    try {
+      isPasswordValid = await argon2.verify(user.password, password);
+    }
+    catch (error) {
+      Logger.error(error);
+    }
 
     if (!isPasswordValid) {
       // 用户名或密码错误

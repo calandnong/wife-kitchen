@@ -24,8 +24,8 @@ export class UserService {
    * @param username 用户名
    * @returns 查找到的用户信息
    */
-  find(username: string) {
-    return this
+  async find(username: string): Promise<User | null> {
+    const user = await this
       .userRepository
       .findOne({
         where: { username },
@@ -37,6 +37,7 @@ export class UserService {
           'updateTime',
         ],
       });
+    return user;
   }
 
   /**

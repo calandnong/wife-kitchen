@@ -18,6 +18,7 @@ db:
   database: "wife_kitchen"
   autoLoadEntities: true
   synchronize: false # 生产环境禁止打开
+  logging: true # 打开sql日志
 
 # redis的配置
 redis:

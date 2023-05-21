@@ -4,7 +4,8 @@
   "version": "1.0.0",
   "description": "分享菜谱，交流厨艺，老婆食堂，让您成为家庭主厨！",
   "scripts": {
-    "applet-dev": "pnpm --filter @wife-kitchen/applet run dev",
+    "applet": "pnpm --filter @wife-kitchen/applet run dev",
+    "server": "pnpm --filter @wife-kitchen/server run start",
     "lint": "pnpm -r run lint",
     "type-check": "pnpm -r run type-check",
     "add:husky-lint-staged": "husky add .husky/pre-commit 'lint-staged'",
