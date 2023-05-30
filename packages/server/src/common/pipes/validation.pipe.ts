@@ -9,11 +9,6 @@ import {
 } from '@nestjs/common';
 import { ValidationException, ValidationExceptionCode } from '../exceptions/validation.exception';
 
-/**
- * 验证信息的Map
- */
-export const VALIDATION_MESSAGE_MAP = {};
-
 @Injectable()
 export class ValidationPipe implements PipeTransform {
   // value 是当前处理的参数，而 metatype 是属性的元类型
