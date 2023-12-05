@@ -5,8 +5,46 @@
 			"style": {
 				"navigationBarTitleText": "老婆食堂"
 			}
+		},
+		{
+			"path": "pages/list/index",
+			"style": {
+				"navigationBarTitleText": "菜谱"
+			}
+		},
+		{
+			"path": "pages/user/index",
+			"style": {
+				"navigationBarTitleText": "我的"
+			}
 		}
 	],
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#3cc51f",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [
+			{
+				"pagePath": "/pages/index/index",
+				"text": "点餐",
+				"iconPath": "",
+				"selectedIconPath": ""
+			},
+			{
+				"pagePath": "/pages/list/index",
+				"text": "菜谱",
+				"iconPath": "",
+				"selectedIconPath": ""
+			},
+			{
+				"pagePath": "/pages/user/index",
+				"text": "我的",
+				"iconPath": "",
+				"selectedIconPath": ""
+			}
+		]
+	},
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "老婆食堂",

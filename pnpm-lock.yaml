@@ -25,8 +25,8 @@ importers:
 
   packages/applet:
     specifiers:
-      '@applet-request/adapters': ^0.1.13
-      '@applet-request/core': ^0.1.10
+      '@applet-request/adapters': ^0.1.14
+      '@applet-request/core': ^0.1.11
       '@dcloudio/types': ^3.3.2
       '@dcloudio/uni-app': 3.0.0-3090820231124001
       '@dcloudio/uni-app-plus': 3.0.0-3090820231124001
@@ -65,8 +65,8 @@ importers:
       vue-tsc: ^1.0.24
       whistle: ^2.9.48
     dependencies:
-      '@applet-request/adapters': 0.1.13
-      '@applet-request/core': 0.1.10
+      '@applet-request/adapters': 0.1.14
+      '@applet-request/core': 0.1.11
       '@dcloudio/uni-app': 3.0.0-3090820231124001_62eeaa0071c57ac5c82069c8f7d3c782
       '@dcloudio/uni-app-plus': 3.0.0-3090820231124001_4106848d048ea68727177af7bbfc2d4d
       '@dcloudio/uni-components': 3.0.0-3090820231124001_postcss@8.4.23+vue@3.2.47
@@ -351,18 +351,18 @@ packages:
   /@antfu/utils/0.7.6:
     resolution: {integrity: sha512-pvFiLP2BeOKA/ZOS6jxx4XhKzdVLHDhGlFEaZ2flWWYf2xOqVniqpk38I04DFRyz+L0ASggl7SkItTc+ZLju4w==}
 
-  /@applet-request/adapters/0.1.13:
-    resolution: {integrity: sha512-pLsXf3J/VplFBaLUJv7MXafsP6Y9sKlTcPsGhNVKnvhB5UTO+k/dWdhw/H2m0wu2nxbF2vzqRfPSrj4t8JkU5w==}
+  /@applet-request/adapters/0.1.14:
+    resolution: {integrity: sha512-+uPnFcISYLgKzB8g7xmRNnrhD4QcDfzw04VRNF/e7mya6sm6m5TS2T7y/WoR4hCnOaAI14TS6qvHXXkpbzn6Ag==}
     dependencies:
-      '@applet-request/core': 0.1.10
+      '@applet-request/core': 0.1.11
       '@applet-request/shared': 0.1.10
       axios: 1.4.0
     transitivePeerDependencies:
       - debug
     dev: false
 
-  /@applet-request/core/0.1.10:
-    resolution: {integrity: sha512-t8SdTHYl4K1VrrEPztAmAArI6OMsPBZld+RqanYyhhO7nD5oYgOCY9MgQ5eCM0yIldojI2KQQISYs77o+/0/Jw==}
+  /@applet-request/core/0.1.11:
+    resolution: {integrity: sha512-UoaxQUAi8zYaGJZ0p3LVxzuGXsAsevXchylxPms4m71BXTidXEvTERH4xA/Wzm9S5oVcXUikx2ThJTWTM8F55g==}
     dependencies:
       '@applet-request/shared': 0.1.10
     dev: false

@@ -62,8 +62,8 @@
     "build:quickapp-webview-union": "uni build -p quickapp-webview-union"
   },
   "dependencies": {
-    "@applet-request/adapters": "^0.1.13",
-    "@applet-request/core": "^0.1.10",
+    "@applet-request/adapters": "^0.1.14",
+    "@applet-request/core": "^0.1.11",
     "@dcloudio/uni-app": "3.0.0-3090820231124001",
     "@dcloudio/uni-app-plus": "3.0.0-3090820231124001",
     "@dcloudio/uni-components": "3.0.0-3090820231124001",
